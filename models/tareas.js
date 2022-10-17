@@ -34,6 +34,30 @@ class Tareas {
 
         const tarea = new Tarea(desc);
         this._listado[tarea.id] = tarea;
+    }9
+
+    listadoCompleto(){
+
+        this.listadoArr.forEach( (tarea, i) => {
+
+            const idx = `${i + 1}`.green;
+            const { desc, completadoEn} = tarea;
+            const estado = (completadoEn)
+                        ? 'Completada'.green
+                        : 'Pendiente'.red;
+
+            console.log(`${idx} ${desc} :: ${estado} `);
+
+        }); 
+
+        // 1: en verde
+        //Completada: verde
+        //Pendiente: rojo
+
+
+        // 1. Alma :: Completada | Pendiente
+        // 2. Realidad :: Completada | Pendiente
+        // 3. Poder :: Completada | Pendiente
     }
 
 }
