@@ -34,30 +34,52 @@ class Tareas {
 
         const tarea = new Tarea(desc);
         this._listado[tarea.id] = tarea;
-    }9
+    }
 
-    listadoCompleto(){
+    listadoCompleto() {
 
-        this.listadoArr.forEach( (tarea, i) => {
+        console.log();
+        this.listadoArr.forEach((tarea, i) => {
 
             const idx = `${i + 1}`.green;
-            const { desc, completadoEn} = tarea;
+            const { desc, completadoEn } = tarea;
             const estado = (completadoEn)
-                        ? 'Completada'.green
-                        : 'Pendiente'.red;
+                ? 'Completada'.green
+                : 'Pendiente'.red;
 
             console.log(`${idx} ${desc} :: ${estado} `);
 
-        }); 
+        });
 
-        // 1: en verde
-        //Completada: verde
-        //Pendiente: rojo
+    }
 
+    listarPendientesCompletadas(completadas = true) {
 
-        // 1. Alma :: Completada | Pendiente
-        // 2. Realidad :: Completada | Pendiente
-        // 3. Poder :: Completada | Pendiente
+        console.log();
+        let contador = 0;
+        this.listadoArr.forEach(tarea => {
+
+            const { desc, completadoEn } = tarea;
+            const estado = (completadoEn)
+                ? 'Completada'.green
+                : 'Pendiente'.red;
+            if (completadas) {
+                //mostar completadas
+                if (completadoEn) {
+                    contador += 1;
+                    console.log(`${(contador + '.').green}${desc} :: ${completadoEn} `);
+                }
+
+            } else {
+                // mostrar pendientes
+                if (!completadoEn) {
+                    contador += 1;
+                    console.log(`${(contador + '.').green}${desc} :: ${estado} `);
+                }
+            }
+
+        });
+
     }
 
 }
