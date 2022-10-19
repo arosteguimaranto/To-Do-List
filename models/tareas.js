@@ -2,7 +2,13 @@
 const Tarea = require('./tarea');
 
 class Tareas {
-    _listado = {};
+    _listado = {
+        'abc': 123
+
+    };
+
+    
+
 
     get listadoArr() {
 
@@ -18,6 +24,13 @@ class Tareas {
 
     constructor() {
         this._listado = {};
+    }
+
+    borrarTarea(id = ''){
+        
+        if(this._listado[id]){
+            delete this._listado[id];
+        }
     }
 
     cargarTareasFromArray(tareas = []) {

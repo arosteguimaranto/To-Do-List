@@ -96,9 +96,45 @@ const inquirerMenu = async () => {
 
  }
 
+ const listadoTareasBorrar = async (tareas = [] ) => {
+
+        const choices = tareas.map( (tarea, i)=> {
+
+            const idx = `${i + 1}`.rainbow;
+             
+            return {
+                value: tarea.id,
+                name: `${idx} ${tarea.desc}`
+            }
+        });
+
+    const preguntas = [
+        {
+            type: 'List',
+            name: 'id',
+            message:'Borrar',
+            choices
+        }
+    ]         
+    
+    
+    const {id} = await inquirer.prompt(preguntas);
+    return id;
+
+
+        
+
+
+
+
+   /*  {
+        value: 'tarea.id',
+        name: `${'1'.blue}  Crear tarea`
+    } */
+ }
 
 
 
  module.exports = {
-    inquirerMenu, pausa, leerInput
+    inquirerMenu, pausa, leerInput, listadoTareasBorrar
 }
