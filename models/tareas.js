@@ -7,7 +7,7 @@ class Tareas {
 
     };
 
-    
+
 
 
     get listadoArr() {
@@ -26,9 +26,9 @@ class Tareas {
         this._listado = {};
     }
 
-    borrarTarea(id = ''){
-        
-        if(this._listado[id]){
+    borrarTarea(id = '') {
+
+        if (this._listado[id]) {
             delete this._listado[id];
         }
     }
